@@ -23,11 +23,19 @@ class Core {
 		if ($path == '' || $path == 'home') {
 			// get some basic variables
 			$variables = array(
-				'theme' => $this->theme_variables()
+				'theme' => $this->theme_variables(),
+				'global' => $this->global_variables(),
+				'login' => $this->login_variables(),
+				'register' => $this->register_variables()
 				);
 
 			$this->view_controller->view_home($variables);
+		} elseif ($path == 'login') {
+
+		} elseif ($path == 'register') {
+
 		} else {
+			print_r($payload);
 			$error = new \CommunityPi\Errors\HTTPError(404, "Invalid Route");
 		}
 	}
@@ -36,6 +44,25 @@ class Core {
 		return array(
 			'path' => '/themes/' . $this->config['general']['theme name'] . '/'
 			);
-
 	}
+
+	private function global_variables() {
+		return array(
+			'site_name' => $this->config['general']['site name'],
+		);
+	}
+
+	private function login_variables() {
+		return array(
+			'post_url' => $this->config['general']['base url'] . '/login',
+		);
+	}
+
+	private function register_variables() {
+		return array(
+			'post_url' => $this->config['general']['base url'] . '/register',
+		);
+	}
+
+
 }
