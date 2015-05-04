@@ -4,12 +4,8 @@
     "require": {
         "nicktacular/php-mongo-session": "~1.0",
         "twig/twig": "~1.0",
-        "google/recaptcha": "~1.1"
-    },
-    "autoload": {
-        "psr-0": {
-            "CommunityPi": "includes/"
-        }
+        "google/recaptcha": "~1.1",
+        "aws/aws-sdk-php": "2.*"
     },
     "authors": [
         {

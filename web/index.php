@@ -1,7 +1,7 @@
 <?php
-require 'vendor/autoload.php';
+require_once 'includes/CommunityPi.class.php';
 
-$core = new \CommunityPi\Core;
+$communitypi = new CommunityPi();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$payload = $_POST;
@@ -9,6 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$payload = $_GET;
 }
 
-$core->requestRouter($_SERVER['REQUEST_URI'], $payload);
+$communitypi->request_router($_SERVER['REQUEST_URI'], $payload);
 
 ?>
